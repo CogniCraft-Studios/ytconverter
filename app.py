@@ -1,7 +1,7 @@
 import os
 import subprocess
 import re
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import uuid
 
 app = Flask(__name__)
@@ -88,7 +88,7 @@ def download():
             return jsonify({'status': 'error', 'message': 'Invalid format specified.'}), 400
 
         subprocess.run(command, check=True)
-        return jsonify({'status': 'success', 'message': 'Download complete!', 'filepath': output_filename})
+        return jsonify({'status': 'success', 'message': 'Download complete!', 'filepath': unique_filename})
     except subprocess.CalledProcessError as e:
         return jsonify({'status': 'error', 'message': f'Download failed: {e}'}), 500
     except Exception as e:
