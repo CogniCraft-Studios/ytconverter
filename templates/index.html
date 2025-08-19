@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             background-color: #f4f4f4;
             margin: 0;
         }
+
         .container {
             background-color: #fff;
             padding: 30px;
@@ -22,25 +24,30 @@
             max-width: 500px;
             text-align: center;
         }
+
         h1 {
             color: #333;
             margin-bottom: 10px;
         }
+
         .subtitle {
             color: #666;
             font-size: 1em;
             margin-top: 0;
             margin-bottom: 20px;
         }
+
         .form-group {
             margin-bottom: 15px;
             text-align: left;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
             color: #555;
         }
+
         input[type="text"],
         select {
             width: 100%;
@@ -49,6 +56,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         button {
             background-color: #007bff;
             color: white;
@@ -60,9 +68,11 @@
             width: 100%;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
         /* Anchor styled as a button */
         .button {
             background-color: #007bff;
@@ -77,35 +87,43 @@
             text-align: center;
             text-decoration: none;
             transition: background-color 0.3s ease;
-            box-sizing: border-box; /* Ensure padding and border are included in the width */
+            box-sizing: border-box;
+            /* Ensure padding and border are included in the width */
         }
+
         .button:hover {
             background-color: #0056b3;
             text-decoration: none;
         }
+
         .message {
             margin-top: 20px;
             padding: 10px;
             border-radius: 4px;
             display: none;
         }
+
         .message.success {
             background-color: #d4edda;
             color: #155724;
             border-color: #c3e6cb;
         }
+
         .message.error {
             background-color: #f8d7da;
             color: #721c24;
             border-color: #f5c6cb;
         }
+
         .progress-bar-container {
             width: 100%;
             background-color: #e0e0e0;
             border-radius: 5px;
             margin-top: 20px;
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
         }
+
         .progress-bar {
             width: 0%;
             height: 20px;
@@ -113,7 +131,8 @@
             border-radius: 5px;
             text-align: center;
             color: white;
-            line-height: 20px; /* Center text vertically */
+            line-height: 20px;
+            /* Center text vertically */
             transition: width 0.5s ease;
         }
 
@@ -141,6 +160,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>ClipCast</h1>
@@ -160,13 +180,13 @@
             <div class="form-group" id="bitrateGroup">
                 <label for="bitrate">MP3 Bitrate (kbps):</label>
                 <select id="bitrate" name="bitrate">
-                    <option value="best">Best</option>
-                    <option value="320K">320</option>
-                    <option value="256K">256</option>
-                    <option value="192K">192</option>
-                    <option value="128K">128</option>
-                    <option value="96K">96</option>
                     <option value="64K">64</option>
+                    <option value="96K">96</option>
+                    <option value="128K">128</option>
+                    <option value="192K">192</option>
+                    <option value="256K">256</option>
+                    <option value="320K">320</option>
+                    <option value="best">Best</option>
                 </select>
             </div>
             <button type="submit">Convert file</button>
@@ -267,4 +287,5 @@
         });
     </script>
 </body>
+
 </html>

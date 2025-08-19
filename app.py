@@ -1,6 +1,7 @@
 import os
 import subprocess
 import re
+import os
 from flask import Flask, render_template, request, jsonify, send_from_directory
 import uuid
 
@@ -97,7 +98,15 @@ def download():
 @app.route('/download/<filename>')
 def download_file(filename):
     download_dir = os.path.join(os.getcwd(), 'downloads')
-    return send_from_directory(download_dir, filename, as_attachment=True)
+    response = send_from_directory(download_dir, filename, as_attachment=True)
+    @response.call_on_close
+    def on_close():
+        try:
+            os.remove(os.path.join(download_dir, filename))
+            print(f"Deleted file: {filename}")
+        except Exception as e:
+            print(f"Error deleting file {filename}: {e}")
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5005)

@@ -3,10 +3,15 @@ version: '3.8'
 services:
   app:
     build: .
-    ports:
-      - "5005:5005"
     volumes:
       - .:/app
     environment:
       FLASK_ENV: development
     command: python3 app.py
+
+  cleaner:
+    build: .
+    volumes:
+      - ./downloads:/app/downloads
+    command: python3 cleanup.py
+    restart: on-failure
