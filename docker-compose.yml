@@ -21,14 +21,14 @@ services:
     command: python3 cleanup.py
     restart: on-failure
 
-  cookie-refresher:
-  build:
-    context: ./cookie_refresher
-    dockerfile: Dockerfile
-  volumes:
-    - cookies-vol:/cookies
-  command: python /app/refresh_cookies.py   # <-- fix path
-  restart: "no"
+  cookie_refresher:
+    build:
+      context: ./cookie_refresher
+      dockerfile: Dockerfile
+    volumes:
+      - cookies-vol:/cookies
+    command: python /app/refresh_cookies.py
+    restart: "no"
     # In Coolify, schedule this as a cron job (e.g. 0 3 * * 0)
 
 volumes:
