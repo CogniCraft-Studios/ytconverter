@@ -18,6 +18,4 @@ RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 RUN mkdir -p downloads
 EXPOSE 5005
 
-# Call via /bin/sh to avoid shebang issues on some runtimes
-ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 CMD ["python", "app.py"]

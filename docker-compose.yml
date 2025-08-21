@@ -3,6 +3,7 @@ version: '3.8'
 services:
   app:
     build: .
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]
     volumes:
       - .:/app                  # dev only; remove in prod
       - cookies-vol:/cookies    # shared volume for cookies
