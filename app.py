@@ -88,6 +88,12 @@ def download():
         else:
             return jsonify({'status': 'error', 'message': 'Invalid format specified.'}), 400
 
+        # 👇 If cookies.txt exists, append the flag
+        if os.path.exists(cookies_path):
+            print("Found a cooky")
+            command.extend(["--cookies", cookies_path])
+        else:
+            print("No cookies found")   
         subprocess.run(command, check=True)
         return jsonify({'status': 'success', 'message': 'Download complete!', 'filepath': unique_filename})
     except subprocess.CalledProcessError as e:

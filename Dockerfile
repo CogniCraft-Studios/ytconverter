@@ -14,4 +14,7 @@ RUN mkdir -p downloads
 
 EXPOSE 5005
 
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+
 CMD ["python", "app.py"]

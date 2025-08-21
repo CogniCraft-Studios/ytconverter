@@ -4,10 +4,15 @@ services:
   app:
     build: .
     volumes:
-      - .:/app
+      - .:/app                  # dev only; remove in prod
+      - cookies-vol:/cookies    # shared volume for cookies
+      - ./downloads:/app/downloads
     environment:
       FLASK_ENV: development
     command: python3 app.py
+    ports:
+      - "5005:5005"
+    restart: unless-stopped
 
   cleaner:
     build: .
@@ -15,3 +20,17 @@ services:
       - ./downloads:/app/downloads
     command: python3 cleanup.py
     restart: on-failure
+
+  cookie-refresher:
+    build:
+      context: ./cookie_refresher
+      dockerfile: Dockerfile
+    volumes:
+      - cookies-vol:/cookies      # same mount path
+    command: python /cookies/refresh_cookies.py
+    restart: "no"
+    # In Coolify, schedule this as a cron job (e.g. 0 3 * * 0)
+
+volumes:
+  cookies-vol:
+ 
