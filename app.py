@@ -94,6 +94,7 @@ def download():
             command.extend(["--cookies", cookies_path])
         else:
             print("No cookies found")   
+        print(command)
         subprocess.run(command, check=True)
         return jsonify({'status': 'success', 'message': 'Download complete!', 'filepath': unique_filename})
     except subprocess.CalledProcessError as e:
