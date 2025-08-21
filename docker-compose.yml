@@ -22,13 +22,13 @@ services:
     restart: on-failure
 
   cookie-refresher:
-    build:
-      context: ./cookie_refresher
-      dockerfile: Dockerfile
-    volumes:
-      - cookies-vol:/cookies      # same mount path
-    command: python /cookies/refresh_cookies.py
-    restart: "no"
+  build:
+    context: ./cookie_refresher
+    dockerfile: Dockerfile
+  volumes:
+    - cookies-vol:/cookies
+  command: python /app/refresh_cookies.py   # <-- fix path
+  restart: "no"
     # In Coolify, schedule this as a cron job (e.g. 0 3 * * 0)
 
 volumes:

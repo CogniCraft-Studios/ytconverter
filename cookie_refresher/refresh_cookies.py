@@ -18,7 +18,8 @@ def refresh_cookies():
         cookies = context.cookies()
         browser.close()
 
-    with open("/app/cookies.txt", "w") as f:
+    with open("/cookies/cookies.txt", "w") as f:
+    # write Netscape-format lines here
         for c in cookies:
             f.write("\t".join([
                 c["domain"],

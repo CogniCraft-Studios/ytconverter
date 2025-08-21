@@ -89,7 +89,7 @@ def download():
             return jsonify({'status': 'error', 'message': 'Invalid format specified.'}), 400
 
         # 👇 If cookies.txt exists, append the flag
-        if os.path.exists(cookies_path):
+        if os.path.exists("/cookies/cookies.txt"):
             print("Found a cooky")
             command.extend(["--cookies", cookies_path])
         else:
