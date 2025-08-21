@@ -66,5 +66,5 @@ base64 -i cookies.txt > cookies.txt.b64
 # the cookies.txt file will be used by the app to download the videos.
 ```
 
-In Coolify, the <mcsymbol name="refresh_cookies.py" filename="refresh_cookies.py" path="/Users/bds/CCStudios-project/projects/yt2mp34/cookie_refresher/refresh_cookies.py" startline="1" type="function"></mcsymbol> will run each week and create a new cookie overwriting the previous one.
+In Coolify, the `refresh_cookies.py` script will run each week and create a new cookie overwriting the previous one.
 This cookie will be used by the app to download the videos.
